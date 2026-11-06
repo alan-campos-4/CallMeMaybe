@@ -12,10 +12,19 @@ dependencies = [
     "pydantic",
     "flake8",
     "mypy",
+    "llm-sdk",
+    "accelerate",
 ]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+llm-sdk = { path = "llm_sdk", editable = true }
 
 [tool.mypy]
 exclude = [
-  "tests",
   ".venv",
+  "llm_sdk",
+  "tests",
 ]

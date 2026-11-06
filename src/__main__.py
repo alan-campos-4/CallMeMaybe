@@ -1,10 +1,12 @@
 import argparse
 from time import time
+from llm_sdk import Small_LLM_Model
 from .json_processing import load_json_array
 from .models import FunctionDef, Prompt
 
 
 def parse_args() -> argparse.Namespace:
+    """Parse the arguments received through the command line"""
     parser = argparse.ArgumentParser()
     parser.add_argument("--functions_definition",
                         default="data/input/functions_definition.json")
@@ -23,6 +25,7 @@ def main() -> None:
         prompts = load_json_array(args.input, Prompt)
     except ValueError as e:
         print(f"An error occured: {e}.\nProgram terminated")
+    model = Small_LLM_Model()
     elapsed = int(time() - start_time)
     minutes, seconds = divmod(elapsed, 60)
     print(f"Total time: {minutes} minutes and {seconds} seconds")
