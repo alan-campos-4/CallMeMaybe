@@ -1,0 +1,21 @@
+[project]
+name = "callmemaybe"
+version = "1.0.0"
+requires-python = ">=3.10"
+description = "Basic natural language processing with LLMs"
+readme = "README.md"
+authors = [
+    {name = "alvespin"}
+]
+dependencies = [
+    "numpy",
+    "pydantic",
+    "flake8",
+    "mypy",
+]
+
+[tool.mypy]
+exclude = [
+  "tests",
+  ".venv",
+]
